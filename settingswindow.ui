@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsWindow</class>
+ <widget class="QDialog" name="SettingsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>623</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Settings</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===== МОНОХРОМНАЯ СХЕМА ===== */
+QDialog {
+    background-color: #3b3b3b;
+    color: #e0e0e0;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+}
+
+QDialog QLabel {
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+QDialog QPushButton {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+QDialog QPushButton:hover {
+    background-color: #5a5a5a;
+    border: 1px solid #6a6a6a;
+}
+
+QDialog QPushButton:pressed {
+    background-color: #2a2a2a;
+}
+
+QDialog QLineEdit, 
+QDialog QComboBox {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #4a4a4a;
+    border-radius: 4px;
+    padding: 6px 8px;
+}
+
+QDialog QCheckBox {
+    color: #cccccc;
+    spacing: 8px;
+}
+
+QDialog QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #5a5a5a;
+    border-radius: 3px;
+    background-color: #2a2a2a;
+}
+
+QDialog QCheckBox::indicator:checked {
+    background-color: #6a6a6a;
+    border: 2px solid #6a6a6a;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,0,0" columnminimumwidth="100,250,50,150">
+     <item row="0" column="2">
+      <widget class="QLabel" name="MyCQL">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>CQ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="MyName">
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="MyCS">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="toolTipDuration">
+        <number>-1</number>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    font-variant: small-caps; /* Альтернативный вариант */
+    text-transform: uppercase; /* Основное свойство */
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="MyCity">
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="MyNameL">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Имя</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="MyITUL">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>ITU</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="MyCityL">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Мой Город</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="MyCSL">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Мой Позывной</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLineEdit" name="MyCQ">
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    font-variant: small-caps; /* Альтернативный вариант */
+    text-transform: uppercase; /* Основное свойство */
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="MyITU">
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    font-variant: small-caps; /* Альтернативный вариант */
+    text-transform: uppercase; /* Основное свойство */
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="MyITUL_2">
+       <property name="styleSheet">
+        <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>QTH loc</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="MyQTH">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    font-variant: small-caps; /* Альтернативный вариант */
+    text-transform: uppercase; /* Основное свойство */
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">	font-weight: 600;
+	font-size: 16px;
+	margin-left: 15px;</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>MyCS</tabstop>
+  <tabstop>MyCity</tabstop>
+  <tabstop>MyName</tabstop>
+  <tabstop>MyCQ</tabstop>
+  <tabstop>MyITU</tabstop>
+  <tabstop>MyQTH</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>SettingsWindow</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>SettingsWindow</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,2056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>RA9HP_log</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===== ОСНОВНОЙ ФОН ===== */
+QMainWindow, QDialog, QWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* ===== ПАНЕЛИ И КОНТЕЙНЕРЫ ===== */
+QFrame[frameShape=&quot;4&quot;] /* HLine */, 
+QFrame[frameShape=&quot;5&quot;] /* VLine */ {
+    background-color: #444444;
+    border: none;
+}
+
+/* Панель инструментов */
+QToolBar {
+    background-color: #2d2d30;
+    border-bottom: 1px solid #444444;
+    spacing: 3px;
+    padding: 3px;
+}
+
+/* Статус бар */
+QStatusBar {
+    background-color: #2d2d30;
+    color: #cccccc;
+    border-top: 1px solid #444444;
+}
+
+/* ===== ОБЛАСТИ С ДРУГИМ ФОНОМ ===== */
+.sidebar {
+    background-color: #252526;
+    border-right: 1px solid #444444;
+}
+
+.content-area {
+    background-color: #1e1e1e;
+}
+
+.form-container {
+    background-color: #2d2d30;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+/* ===== ОБЩИЕ СТИЛИ СКРОЛЛ-БАРА ===== */
+QScrollBar:vertical {
+    background-color: #2d2d30;
+    width: 14px;
+    border-radius: 7px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #444444;
+    border-radius: 7px;
+    min-height: 25px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #555555;
+}
+
+QScrollBar::handle:vertical:pressed {
+    background-color: #007acc;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+/* Горизонтальный скролл-бар */
+QScrollBar:horizontal {
+    background-color: #2d2d30;
+    height: 14px;
+    border-radius: 7px;
+    margin: 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #444444;
+    border-radius: 7px;
+    min-width: 25px;
+    margin: 2px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #555555;
+}
+
+QScrollBar::handle:horizontal:pressed {
+    background-color: #007acc;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    border: none;
+    background: none;
+    width: 0px;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+/* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ ВВОДА ===== */
+
+/* Общие стили для ComboBox, DateEdit, TimeEdit */
+QComboBox, QDateEdit, QTimeEdit, QDateTimeEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 6px 8px;
+    min-height: 20px;
+    font-size: 12px;
+}
+
+QComboBox:focus, QDateEdit:focus, QTimeEdit:focus, QDateTimeEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QComboBox:disabled, QDateEdit:disabled, QTimeEdit:disabled, QDateTimeEdit:disabled {
+    background-color: #252526;
+    color: #666666;
+    border: 1px solid #333333;
+}
+
+/* Общие стили для выпадающих частей */
+QComboBox::drop-down, QDateEdit::drop-down, QTimeEdit::drop-down, QDateTimeEdit::drop-down {
+    border: none;
+    background-color: #3e3e42;
+    width: 25px;
+    border-radius: 0 3px 3px 0;
+}
+
+QComboBox::down-arrow, QDateEdit::down-arrow, QTimeEdit::down-arrow, QDateTimeEdit::down-arrow {
+    color: #888888;
+    width: 10px;
+    height: 10px;
+}
+
+QComboBox::down-arrow:hover, QDateEdit::down-arrow:hover, QTimeEdit::down-arrow:hover, QDateTimeEdit::down-arrow:hover {
+    color: #aaaaaa;
+}
+
+/* ===== ОСНОВНОЙ СТИЛЬ QMenuBar ===== */
+QMenuBar {
+    background-color: #2d2d30;
+    color: #e0e0e0;
+    border: none;
+    border-bottom: 1px solid #444444;
+    padding: 4px 0px;
+    font-size: 12px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    color: #e0e0e0;
+    padding: 6px 12px;
+    margin: 0px 2px;
+    border-radius: 3px;
+    border: none;
+}
+
+QMenuBar::item:selected {
+    background-color: #3e3e42;
+    color: #ffffff;
+}
+
+QMenuBar::item:pressed {
+    background-color: #007acc;
+    color: #ffffff;
+}
+
+QMenuBar::item:disabled {
+    color: #666666;
+}
+/* ===== ВЫПАДАЮЩИЕ МЕНЮ QMenu ===== */
+QMenu {
+    background-color: #2d2d30;
+    color: #e0e0e0;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 12px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+}
+
+QMenu::item {
+    background-color: transparent;
+    color: #e0e0e0;
+    padding: 6px 24px 6px 20px;
+    margin: 2px 0px;
+    border-radius: 3px;
+    border: none;
+}
+
+QMenu::item:selected {
+    background-color: #007acc;
+    color: #ffffff;
+}
+
+QMenu::item:disabled {
+    color: #666666;
+    background-color: transparent;
+}
+
+QMenu::item:checked {
+    background-color: #007acc;
+    color: #ffffff;
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #444444;
+    margin: 4px 8px;
+}
+
+QMenu::indicator {
+    width: 13px;
+    height: 13px;
+}
+
+QMenu::indicator:non-exclusive:checked {
+    image: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'&gt;&lt;path fill='%23007acc' d='M10.5 3.5L5 9L2.5 6.5L3.5 5.5L5 7L9.5 2.5L10.5 3.5Z'/&gt;&lt;/svg&gt;&quot;);
+}
+
+QMenu::indicator:exclusive:checked {
+    image: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'&gt;&lt;circle cx='6.5' cy='6.5' r='3.5' fill='%23007acc'/&gt;&lt;/svg&gt;&quot;);
+}
+
+
+/* Дополнительные отступы для конкретных разделов */
+QMenuBar::item[class=&quot;spaced&quot;] {
+    margin-right: 20px; /* Увеличенный отступ справа */
+}
+
+QMenuBar::item:second {
+    margin-left: 15px; /* Отступ слева для первого элемента */
+}
+
+QMenuBar::item:last {
+    margin-right: 15px; /* Отступ справа для последнего элемента */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QGridLayout" name="Check" rowstretch="0,0,0,0">
+         <property name="horizontalSpacing">
+          <number>20</number>
+         </property>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="BandBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Выберите рабочий диапазон&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== ИСПРАВЛЕННЫЕ ВЫПАДАЮЩИЕ СПИСКИ ===== */
+QComboBox {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 6px 8px;
+    min-width: 80px;
+}
+
+QComboBox:focus {
+    border: 1px solid #007acc;
+}
+
+QComboBox:disabled {
+    background-color: #2d2d30;
+    color: #666666;
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3e3e42;
+    width: 25px;
+    border-radius: 0 3px 3px 0;
+}
+
+QComboBox::down-arrow {
+    color: #cccccc; /* Более мягкий цвет стрелки */
+    width: 10px;
+    height: 10px;
+}
+
+QComboBox::down-arrow:on { /* Когда список открыт */
+    color: #007acc;
+}
+
+/* ВЫПАДАЮЩИЙ СПИСОК - делаем его выпуклым и контрастным */
+QComboBox QAbstractItemView {
+    background-color: #3e3e42; /* Более светлый фон */
+    color: #ffffff;
+    border: 1px solid #007acc; /* Синяя рамка */
+    border-radius: 4px;
+    selection-background-color: #007acc;
+    outline: none;
+    margin: 2px 0px; /* Отступ от основного виджета */
+    padding: 4px;
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #444444;
+    border-radius: 2px;
+    margin: 1px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #4e4e52;
+}
+
+/* Тень для выпадающего списка (если поддерживается) */
+QComboBox QAbstractItemView {
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+}</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>1.8</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3.5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>10</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>14</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>18</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>21</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>24</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>28</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>144</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>430</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2100</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QTimeEdit" name="timeEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>34</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="Mode">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Модуляция</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="Time">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Время UTC</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="ModeBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== ИСПРАВЛЕННЫЕ ВЫПАДАЮЩИЕ СПИСКИ ===== */
+QComboBox {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 6px 8px;
+    min-width: 80px;
+}
+
+QComboBox:focus {
+    border: 1px solid #007acc;
+}
+
+QComboBox:disabled {
+    background-color: #2d2d30;
+    color: #666666;
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3e3e42;
+    width: 25px;
+    border-radius: 0 3px 3px 0;
+}
+
+QComboBox::down-arrow {
+    color: #cccccc; /* Более мягкий цвет стрелки */
+    width: 10px;
+    height: 10px;
+}
+
+QComboBox::down-arrow:on { /* Когда список открыт */
+    color: #007acc;
+}
+
+/* ВЫПАДАЮЩИЙ СПИСОК - делаем его выпуклым и контрастным */
+QComboBox QAbstractItemView {
+    background-color: #3e3e42; /* Более светлый фон */
+    color: #ffffff;
+    border: 1px solid #007acc; /* Синяя рамка */
+    border-radius: 4px;
+    selection-background-color: #007acc;
+    outline: none;
+    margin: 2px 0px; /* Отступ от основного виджета */
+    padding: 4px;
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #444444;
+    border-radius: 2px;
+    margin: 1px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #4e4e52;
+}
+
+/* Тень для выпадающего списка (если поддерживается) */
+QComboBox QAbstractItemView {
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+}</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>CW</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SSB</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FM</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BPSK31</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BPSK63</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>BPSK125</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>RTTY</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FT4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FT8</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QDateEdit" name="dateEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>34</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="Date">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Дата</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="Band">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Диапазон</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QCheckBox" name="RealTime">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;При включенной функции автоматически подставляются дата и время проведения радиосвязи по данным компьютера&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== ОСНОВНЫЕ СТИЛИ QCheckBox ===== */
+QCheckBox {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+	font-weight: 600;
+    spacing: 8px;
+    padding: 4px 0px;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #555555;
+    border-radius: 3px;
+    background-color: #2d2d30;
+}
+
+QCheckBox::indicator:hover {
+    border: 2px solid #777777;
+    background-color: #3e3e42;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #007acc;
+    border: 2px solid #007acc;
+    image: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'&gt;&lt;path fill='white' d='M8.5,2.5 L4.5,6.5 L2.5,4.5 L1,6 L4.5,9.5 L10,4 L8.5,2.5 Z'/&gt;&lt;/svg&gt;&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #252526;
+    border: 2px solid #444444;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #004578;
+    border: 2px solid #004578;
+}
+
+QCheckBox:disabled {
+    color: #666666;
+}</string>
+           </property>
+           <property name="text">
+            <string>Реальное время</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="Input" rowstretch="0,0,0">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <item row="1" column="0">
+          <widget class="QLabel" name="NameLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::RightToLeft</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+	text-align: right;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Имя</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="RSTs">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== ПОЛНЫЙ СОГЛАСОВАННЫЙ СТИЛЬ ===== */
+
+/* QLineEdit - полностью согласован с таблицей */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+/* QTextEdit - многострочный вариант */
+QTextEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+}
+
+QTextEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+/* Общие состояния */
+QLineEdit:hover, QTextEdit:hover {
+    border: 1px solid #555555;
+}
+
+QLineEdit:disabled, QTextEdit:disabled {
+    background-color: #252526;
+    color: #666666;
+    border: 1px solid #333333;
+}
+
+/* Placeholder */
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="RSTtLabel">
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>RSTr</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="RSTr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>35</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>35</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== ПОЛНЫЙ СОГЛАСОВАННЫЙ СТИЛЬ ===== */
+
+/* QLineEdit - полностью согласован с таблицей */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+/* QTextEdit - многострочный вариант */
+QTextEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+}
+
+QTextEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+/* Общие состояния */
+QLineEdit:hover, QTextEdit:hover {
+    border: 1px solid #555555;
+}
+
+QLineEdit:disabled, QTextEdit:disabled {
+    background-color: #252526;
+    color: #666666;
+    border: 1px solid #333333;
+}
+
+/* Placeholder */
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="CSLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Позывной</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="QTHIn">
+           <property name="styleSheet">
+            <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="QTHLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>QTH</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="NameIn">
+           <property name="styleSheet">
+            <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="RSTsLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ LABEL ===== */
+
+QLabel {
+    background-color: transparent;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    padding: 4px 2px;
+    border: none;
+    selection-background-color: transparent;
+}
+
+/* Заголовки */
+QLabel[class=&quot;title&quot;] {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 2px;
+}
+
+QLabel[class=&quot;subtitle&quot;] {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+}
+
+/* Подписи к полям */
+QLabel[class=&quot;field-label&quot;] {
+    color: #a0a0a0;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin-bottom: 3px;
+}
+
+/* Информационные labels */
+QLabel[class=&quot;info&quot;] {
+    color: #88c9ff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 6px;
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 3px;
+    border-left: 3px solid #007acc;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>RSTs</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="CallsignIn">
+           <property name="styleSheet">
+            <string notr="true">/* ===== QLineEdit С ЗАГЛАВНЫМИ БУКВАМИ ===== */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-weight: 1000;
+    font-variant: small-caps; /* Альтернативный вариант */
+    text-transform: uppercase; /* Основное свойство */
+    selection-background-color: #007acc;
+    selection-color: #ffffff;
+    min-height: 18px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #252526;
+}
+
+QLineEdit::placeholder {
+    color: #666666;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none; /* Placeholder в обычном регистре */
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="2">
+          <widget class="QPushButton" name="Push2Log">
+           <property name="styleSheet">
+            <string notr="true">/* ===== АНИМАЦИИ ДЛЯ QPushButton ===== */
+
+QPushButton {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 1000;
+    min-width: 80px;
+    min-height: 32px;
+    outline: none;
+    
+    /* Плавные переходы */
+    transition: all 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #3e3e42;
+    border: 1px solid #555555;
+    transform: translateY(-1px);
+}
+
+QPushButton:pressed {
+    background-color: #007acc;
+    color: #ffffff;
+    border: 1px solid #007acc;
+    transform: translateY(1px);
+    transition: all 0.1s ease;
+}
+
+QPushButton:disabled {
+    background-color: #252526;
+    color: #666666;
+    border: 1px solid #333333;
+    transform: none;
+}
+/* ===== ЭФФЕКТ ПУЛЬСАЦИИ ===== */
+QPushButton[class=&quot;pulse&quot;] {
+    background-color: #007acc;
+    color: #ffffff;
+    border: 1px solid #007acc;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+QPushButton[class=&quot;pulse&quot;]::after {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+QPushButton[class=&quot;pulse&quot;]:pressed::after {
+    width: 200px;
+    height: 200px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Занести в Лог</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="QSOTable">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>60</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1000</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>900</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView {
+    background-color: #1e1e1e;
+    alternate-background-color: #252526;
+    gridline-color: #444444;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    outline: 0;
+    color: #ffffff;
+    font-family: &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-size: 18px;
+    selection-background-color: #04395e;
+}
+
+QTableView::item {
+    border-bottom: 1px solid #444444;
+    padding: 6px;
+    text-align: center;
+}
+
+QTableView::item:selected {
+    background-color: #04395e;
+    color: #ffffff;
+}
+
+QTableView::item:hover {
+    background-color: #2a2d2e;
+}
+
+QHeaderView::section {
+    background-color: #2d2d30;
+    color: #ffffff;
+    padding: 8px;
+    border: none;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+QHeaderView::section:last {
+    border-right: none;
+}
+
+QHeaderView::section:pressed {
+    background-color: #3e3e42;
+}
+
+/* Стили для углового виджета (левый верхний угол) */
+QTableCornerButton::section {
+    background-color: #2d2d30;
+    border: none;
+    border-bottom: 1px solid #444444;
+    border-right: 1px solid #444444;
+}
+
+/* Стили для пустых областей таблицы */
+QTableView QTableCornerButton::section:horizontal,
+QTableView QTableCornerButton::section:vertical {
+    background-color: #2d2d30;
+    border: none;
+}
+
+/* Стили для редакторов */
+QLineEdit {
+    background-color: #2d2d30;
+    color: #ffffff;
+    border: 2px solid #007acc;
+    border-radius: 3px;
+    padding: 4px;
+    selection-background-color: #04395e;
+}
+
+QLineEdit:focus {
+    border: 2px solid #0090ff;
+}
+
+/* Стиль для скроллбара */
+QScrollBar:vertical {
+    background-color: #2d2d30;
+    width: 12px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #444444;
+    border-radius: 6px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #555555;
+}
+
+QScrollBar:horizontal {
+    background-color: #2d2d30;
+    height: 12px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #444444;
+    border-radius: 6px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #555555;
+}</string>
+      </property>
+      <property name="rowCount">
+       <number>4</number>
+      </property>
+      <property name="columnCount">
+       <number>10</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>120</number>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>40</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>60</number>
+      </attribute>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Time</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Callsign</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Band</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mode</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>RSTr</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>RSTs</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>QTH</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Remarks</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>2025-11-20</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>21:01</string>
+       </property>
+      </item>
+      <item row="0" column="2">
+       <property name="text">
+        <string>UN7FW</string>
+       </property>
+      </item>
+      <item row="0" column="3">
+       <property name="text">
+        <string>14</string>
+       </property>
+      </item>
+      <item row="0" column="4">
+       <property name="text">
+        <string>SSB</string>
+       </property>
+      </item>
+      <item row="0" column="5">
+       <property name="text">
+        <string>56</string>
+       </property>
+      </item>
+      <item row="0" column="6">
+       <property name="text">
+        <string>59</string>
+       </property>
+      </item>
+      <item row="0" column="7">
+       <property name="text">
+        <string>WADIM</string>
+       </property>
+      </item>
+      <item row="0" column="8">
+       <property name="text">
+        <string>EKIBASTUZ</string>
+       </property>
+      </item>
+      <item row="0" column="9">
+       <property name="text">
+        <string>FIRST QSO</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>2025-11-20</string>
+       </property>
+      </item>
+      <item row="1" column="1">
+       <property name="text">
+        <string>21:45</string>
+       </property>
+      </item>
+      <item row="1" column="2">
+       <property name="text">
+        <string>JH1REK</string>
+       </property>
+      </item>
+      <item row="1" column="3">
+       <property name="text">
+        <string>21</string>
+       </property>
+      </item>
+      <item row="1" column="4">
+       <property name="text">
+        <string>CW</string>
+       </property>
+      </item>
+      <item row="1" column="5">
+       <property name="text">
+        <string>599</string>
+       </property>
+      </item>
+      <item row="1" column="6">
+       <property name="text">
+        <string>579</string>
+       </property>
+      </item>
+      <item row="1" column="7">
+       <property name="text">
+        <string>Yama</string>
+       </property>
+      </item>
+      <item row="1" column="8">
+       <property name="text">
+        <string>Tokyo</string>
+       </property>
+      </item>
+      <item row="2" column="0">
+       <property name="text">
+        <string>2025-11-20</string>
+       </property>
+      </item>
+      <item row="2" column="1">
+       <property name="text">
+        <string>22:00</string>
+       </property>
+      </item>
+      <item row="2" column="2">
+       <property name="text">
+        <string>RK1B</string>
+       </property>
+      </item>
+      <item row="2" column="3">
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item row="2" column="4">
+       <property name="text">
+        <string>SSB</string>
+       </property>
+      </item>
+      <item row="2" column="5">
+       <property name="text">
+        <string>58</string>
+       </property>
+      </item>
+      <item row="2" column="6">
+       <property name="text">
+        <string>55</string>
+       </property>
+      </item>
+      <item row="2" column="7">
+       <property name="text">
+        <string>Mikhail</string>
+       </property>
+      </item>
+      <item row="2" column="8">
+       <property name="text">
+        <string>StPetersburg</string>
+       </property>
+      </item>
+      <item row="3" column="0">
+       <property name="text">
+        <string>2025-11-21</string>
+       </property>
+      </item>
+      <item row="3" column="1">
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item row="3" column="3">
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item row="3" column="4">
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>Экспорт</string>
+     </property>
+     <addaction name="actionCabrillo"/>
+     <addaction name="actionAdif"/>
+    </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>Импорт</string>
+     </property>
+     <addaction name="actionCabrillo_2"/>
+     <addaction name="actionAdif_2"/>
+    </widget>
+    <addaction name="action"/>
+    <addaction name="menu_2"/>
+    <addaction name="menu_3"/>
+    <addaction name="separator"/>
+    <addaction name="action_3"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <action name="action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+  </action>
+  <action name="actionCabrillo">
+   <property name="text">
+    <string>Cabrillo</string>
+   </property>
+  </action>
+  <action name="actionAdif">
+   <property name="text">
+    <string>Adif</string>
+   </property>
+  </action>
+  <action name="actionCabrillo_2">
+   <property name="text">
+    <string>Cabrillo</string>
+   </property>
+  </action>
+  <action name="actionAdif_2">
+   <property name="text">
+    <string>Adif</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Справка</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>CallsignIn</tabstop>
+  <tabstop>RSTs</tabstop>
+  <tabstop>RSTr</tabstop>
+  <tabstop>NameIn</tabstop>
+  <tabstop>QTHIn</tabstop>
+  <tabstop>timeEdit</tabstop>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>BandBox</tabstop>
+  <tabstop>ModeBox</tabstop>
+  <tabstop>Push2Log</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
