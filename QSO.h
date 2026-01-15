@@ -1,17 +1,16 @@
 #ifndef QSO_H
 #define QSO_H
-
+#include <string>
 typedef struct {
-    char date[15];
-    char time[10];
-    char callsign[20];
-    char band[20];
-    char mode[10];
-    char rstr[5];
-    char rsts[5];
-    char name[20];
-    char qth[40];
-    char remarks[100];
+    std::string date;
+    std::string time;
+    std::string callsign;
+    std::string band;
+    std::string mode;
+    std::string rstr;
+    std::string rsts;
+    std::string name;
+    std::string qth;
 } TQSO;
 
 
