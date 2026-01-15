@@ -385,7 +385,7 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 
     if (QSOHystory.isEmpty()) { event->accept(); return; }
 
-    auto resBtn = QMessageBox::question(this, "QSO Logger", "Сохранить лог?",
+    auto resBtn = QMessageBox::question(this, "RA9HP_log", "Сохранить лог?",
                                         QMessageBox::No | QMessageBox::Yes | QMessageBox::Cancel);
     if (resBtn == QMessageBox::Yes) {
         saveLogToFile(logFileName);
